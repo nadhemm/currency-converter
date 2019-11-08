@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<% for conversation in @conversations do %>
+    <%= conversation.input_amount%>
+    <%= conversation.from_currency%>
+  =
+    <%= conversation.output_amount%>
+    <%= conversation.to_currency%>
+<br>
+ <% end%>
+</body>
+</html>
