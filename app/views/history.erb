@@ -1,17 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <title>History of conversions</title>
 </head>
 <body>
-<% for conversation in @conversations do %>
-    <%= conversation.input_amount%>
-    <%= conversation.from_currency%>
-  =
-    <%= conversation.output_amount%>
-    <%= conversation.to_currency%>
-<br>
- <% end%>
+<div class="row d-flex justify-content-center">
+  <div class="text-center card w-50 ml-5" style="font-family: Ubuntu">
+    <div>
+      <div class="card-title">
+       Recent conversions
+      </div>
+      <div class="card-text">
+        <table id="history_data_table" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>From currency</th>
+            <th>Amount</th>
+            <th></th>
+            <th>Amount</th>
+            <th>To currency</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% for conversion in @conversions do %>
+            <tr>
+              <td><%= conversion.created_at.strftime("%Y-%m-%d") %></td>
+              <td><%= conversion.created_at.strftime("%H:%M") %></td>
+              <td><%= conversion.input_amount %></td>
+              <td><%= conversion.from_currency %></td>
+              <td> >>></td>
+              <td><%= conversion.output_amount %></td>
+              <td><%= conversion.to_currency %></td>
+            </tr>
+          <% end %>
+          </tbody>
+          <% if @conversions.count > 20 %>
+            <tfoot>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>From currency</th>
+              <th>Amount</th>
+              <th></th>
+              <th>Amount</th>
+              <th>To currency</th>
+            </tr>
+            </tfoot>
+          <% end %>
+        </table>
+      </div>
+      <a href="/convert" class="btn btn-primary "> Convert more </a>
+
+    </div>
+  </div>
+
+</div>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#history_data_table').DataTable();
+    });
+</script>
 </html>

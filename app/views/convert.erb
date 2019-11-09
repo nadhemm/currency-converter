@@ -2,70 +2,69 @@
 <html>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <head>
 </head>
 <body>
-<!--		<h1>Hello world!</h1>-->
-
-<!--			<h2> From : <input type="text name=”book[title]"/></h2>-->
-<!--			<h2> To: <input type="text" name="book[author]"/></h2>-->
-<!--			<input type="submit"/>-->
 
 
-<div class="card text-center">
-  <div class="card-header mt-3">
-    <h1 class="text-bold-500 info">
-      Exchange cryptocurrency at the best rate
-    </h1>
-  </div>
-  <div class="card-subtitle p-0 mx-2"><br>
-    <h5 class="text-bold-500">Transfer from one wallet to another within seconds. It's that simple.</h5>
-  </div>
+<div class="row d-flex justify-content-center" style="font-family: Ubuntu">
+  <div class="card text-center  col-md-6">
+    <div class="card-header mt-3">
+      <h1 class="text-bold-500 info">
+        Exchange cryptocurrency at the best rate
+      </h1>
+    </div>
+    <div class="card-subtitle p-0">
+      <br><br><br>
+      <h5 class="text-bold-500">Convert from one currency to another <br>
+         within seconds.
+        It's that simple.</h5>
+    </div>
 
-	<div class="card-body mt-2">
-    <form action="/convert" method="post">
-      <div class="form-group form-inline d-flex justify-content-center">
-
-        <div class="input-group mr-2 mb-1 inline">
-          <input type="text" class="form-control" placeholder="1.345" name="input_amount">
-          <div class="input-group-append">
-            <button type="button" class="btn btn-info btn-lighten-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              EUR
-            </button>
-            <div class="dropdown-menu" name="from_currency">
-              <a class="dropdown-item" href="#">EUR</a>
-              <a class="dropdown-item" href="#">USD</a>
-              <a class="dropdown-item" href="#">CHF</a>
+    <div class="card-body mt-2">
+      <form action="/convert" method="post">
+        <div class="form-group form-inline d-flex justify-content-center">
+          <div class="input-group mb-1 inline">
+            <input type="text" class="form-control" value="<%= @input_amount %>" name="input_amount">
+            <div class="input-group-append">
+              <select class="browser-default custom-select" name="from_currency">
+                <option value="EUR">EUR</option>
+                <option selected value="USD">USD</option>
+                <option value="CHF">CHF</option>
+              </select>
             </div>
-          </div>
-          <div class="col-md-1"></div>
 
-          <input type="text" class="form-control" value="<%= @to_amount %>">
-          <div class="input-group-append">
-            <button type="button" class="btn btn-info btn-lighten-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              EUR
-            </button>
-            <div class="dropdown-menu" name="to_currency">
-              <a class="dropdown-item" href="#">EUR</a>
-              <a class="dropdown-item" href="#">USD</a>
-              <a class="dropdown-item" href="#">CHF</a>
+            <div class="col-md-1"></div>
+            <input type="text" class="form-control" disabled value="<%= @output_amount %>">
+            <div class="input-group-append">
+              <select class="browser-default custom-select" name="to_currency">
+                <option selected value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="CHF">CHF</option>
+              </select>
             </div>
           </div>
         </div>
-      </div>
-      <button type="submit" class="btn btn-danger exchange my-2">
-        <i class="la la-exchange font-medium-1"></i>
-        <span class="font-medium-1"> Exchange </span>
-      </button>
-    </form>
+        <button type="submit" class="btn btn-danger exchange my-2">
+          <i class="la la-exchange font-medium-1"></i>
+          <span class="font-medium-1"> Exchange </span>
+        </button>
+        <div>
+          <small>
+            <a class="" href="/history">
+              <span class="font-medium-1 secondary" style="font-family: Ubuntu; color: darkslategrey"> Or, visit the recent conversions</span>
+            </a>
 
+
+          </small>
+        </div>
+      </form>
+
+    </div>
   </div>
 </div>
-
 </body>
-</html>*
-
+</html>
