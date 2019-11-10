@@ -13,5 +13,5 @@ Make sure to update database connection path in the file `config/environment.rb`
 
 # 2. Run the project
 To run this starter project, simply execute `rackup` in your console
-## 3. Testing
+# 3. Testing
 To run tests simply execute `rspec`  
