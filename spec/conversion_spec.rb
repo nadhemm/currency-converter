@@ -7,7 +7,7 @@ describe 'Currency conversion' do
 
   it "works!" do
     get '/'
-    expect(last_response.status).to eq 200
+    expect(last_response.status).to eq 302
   end
 
   it "converts!" do
