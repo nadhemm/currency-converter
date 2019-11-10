@@ -4,23 +4,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<link rel="shortcut icon" href="/img/favicon.ico"/>
+<title>Currency converter</title>
 <head>
 </head>
-<body>
-
-
+<body style="background: #f5f5f5" class="mt-5">
 <div class="row d-flex justify-content-center" style="font-family: Ubuntu">
-  <div class="card text-center  col-md-6">
+  <div class="card text-center col-md-4">
     <div class="card-header mt-3">
       <h1 class="text-bold-500 info">
-        Exchange cryptocurrency at the best rate
+        Convert currencies at the <br>
+        best rate
       </h1>
     </div>
     <div class="card-subtitle p-0">
       <br><br><br>
       <h5 class="text-bold-500">Convert from one currency to another <br>
-         within seconds.
+        within seconds.
         It's that simple.</h5>
     </div>
 
@@ -30,20 +30,24 @@
           <div class="input-group mb-1 inline">
             <input type="text" class="form-control" value="<%= @input_amount %>" name="input_amount">
             <div class="input-group-append">
-              <select class="browser-default custom-select" name="from_currency">
-                <option value="EUR">EUR</option>
-                <option selected value="USD">USD</option>
-                <option value="CHF">CHF</option>
+              <select class="browser-default custom-select input_cur" name="from_currency">
+                <option class="input-select" id="input-EUR" value="EUR">EUR</option>
+                <option class="input-select" id="input-EUR" selected value="USD">USD</option>
+                <option class="input-select" id="input-EUR" value="CHF">CHF</option>
               </select>
             </div>
+            <div class="col-md-1"> </div>
+            <a class="" href="#">
+              <img src="/img/swap-arrows.png" class="img-fluid"  style="height: 35px; " onclick="switch_currency()">
+            </a>
+            <div class="col-md-1"> </div>
 
-            <div class="col-md-1"></div>
             <input type="text" class="form-control" disabled value="<%= @output_amount %>">
             <div class="input-group-append">
-              <select class="browser-default custom-select" name="to_currency">
-                <option selected value="EUR">EUR</option>
-                <option value="USD">USD</option>
-                <option value="CHF">CHF</option>
+              <select class="browser-default custom-select output_cur" name="to_currency">
+                <option selected class="output-select" id="output-EUR" value="EUR">EUR</option>
+                <option class="output-select" id="output-USD" value="USD">USD</option>
+                <option class="output-select" id="output-CHF" value="CHF">CHF</option>
               </select>
             </div>
           </div>
@@ -57,14 +61,12 @@
             <a class="" href="/history">
               <span class="font-medium-1 secondary" style="font-family: Ubuntu; color: darkslategrey"> Or, visit the recent conversions</span>
             </a>
-
-
           </small>
         </div>
       </form>
-
     </div>
   </div>
 </div>
 </body>
+<script src="/js/switch_currencies.js"></script>
 </html>

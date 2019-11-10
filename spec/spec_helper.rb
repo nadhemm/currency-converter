@@ -6,6 +6,10 @@ require 'rspec'
 # setting env
 set :environment, :test
 
+# Set testing environment with a different db
+# Here we use the same credentials for testing
+DataMapper.setup(:default, 'postgres://klarx_user:klarx.pass@127.0.0.1:5432/klarx_test')
+
 # Creating a Mixin
 module RSpecMixin
   include Rack::Test::Methods

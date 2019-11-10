@@ -1,7 +1,0 @@
-development:
-  adapter: postgresql
-  database: development.db
-  username: klarx_admin
-  password: klarxadmin
-  pool: 5
-  timeout: 5000
